@@ -1,13 +1,18 @@
 package com.example.datingapi;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class DatingApiApplicationTests {
 
+	@Autowired DatingController controller;
+
 	@Test
-	void contextLoads() {
+	void contextLoads() throws Exception{
+		assertThat(controller).isNotNull();
 	}
 
 }
