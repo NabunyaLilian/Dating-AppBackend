@@ -4,14 +4,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @NotEmpty(message = "Name cannot be empty")
     private String name;
+
+    @NotEmpty(message = "Username cannot be empty")
     private String username;
+
+    @NotEmpty(message = "Password cannot be empty")
     private String password;
 
     public User(){

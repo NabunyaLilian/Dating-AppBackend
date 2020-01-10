@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -16,7 +17,7 @@ public class DatingController {
     private UserService userService;
 
     @PostMapping("/users")
-    public ResponseEntity<String> addUser(@RequestBody User user){
+    public ResponseEntity<String> addUser(@Valid @RequestBody User user){
         userService.addUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).body("Added successfully");
     }
