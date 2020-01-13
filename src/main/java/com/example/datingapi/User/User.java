@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class User {
@@ -12,16 +13,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @NotNull
     private String name;
 
+    @NotNull
     private String username;
 
+    @NotNull
     private String password;
 
-    public User(){
+    public User() {
 
     }
-    
+
     public User(String name, String username, String password) {
         this.name = name;
         this.username = username;

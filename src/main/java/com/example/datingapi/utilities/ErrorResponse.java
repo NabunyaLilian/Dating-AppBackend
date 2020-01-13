@@ -1,4 +1,4 @@
-package com.example.datingapi;
+package com.example.datingapi.utilities;
 
 import java.util.List;
 

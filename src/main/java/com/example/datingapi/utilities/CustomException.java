@@ -1,4 +1,4 @@
-package com.example.datingapi;
+package com.example.datingapi.utilities;
 
 public class CustomException extends RuntimeException {
     private String message;

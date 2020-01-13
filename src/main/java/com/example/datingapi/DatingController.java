@@ -2,6 +2,7 @@ package com.example.datingapi;
 
 import com.example.datingapi.User.User;
 import com.example.datingapi.User.UserService;
+import com.example.datingapi.utilities.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +22,30 @@ public class DatingController {
         if(user.getName().isEmpty()){
             throw new CustomException(
                     "Wrong Name",
-                    "You've entered an incorrect passcode, try again with correct one",
-                    "Orange, juicy and sweet",
+                    "You've entered an incorrect Name, try again with correct one",
+                    "Lilian, Jowey",
                     "Ask your friends for access at http://wwww.letmeinthesecretdoor.com",
                     "Reach out to http://wwww.letmeinthesecretdoor.com/support for more help");
+        }
+
+        if(user.getUsername().isEmpty()){
+            throw new CustomException(
+                    "Wrong Username",
+                    "You've entered an incorrect Username, try again with a correct one",
+                    "Julie, JulieWatres",
+                    "Ask your friends for access at http://wwww.letmeinthesecretdoor.com",
+                    "Reach out to http://wwww.letmeinthesecretdoor.com/support for more help"
+            );
+        }
+
+        if(user.getPassword().isEmpty()){
+            throw new CustomException(
+                    "Wrong Password",
+                    "You've entered an incorrect Password, try again with a correct one",
+                    "Julie, JulieWatres",
+                    "Ask your friends for access at http://wwww.letmeinthesecretdoor.com",
+                    "Reach out to http://wwww.letmeinthesecretdoor.com/support for more help"
+            );
         }
         userService.addUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).body("Added successfully");
