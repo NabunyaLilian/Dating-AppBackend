@@ -12,13 +12,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @NotEmpty(message = "Name cannot be empty")
     private String name;
 
-    @NotEmpty(message = "Username cannot be empty")
     private String username;
 
-    @NotEmpty(message = "Password cannot be empty")
     private String password;
 
     public User(){

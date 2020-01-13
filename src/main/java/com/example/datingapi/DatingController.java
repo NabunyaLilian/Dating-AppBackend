@@ -18,6 +18,14 @@ public class DatingController {
 
     @PostMapping("/users")
     public ResponseEntity<String> addUser(@Valid @RequestBody User user){
+        if(user.getName().isEmpty()){
+            throw new CustomException(
+                    "Wrong Name",
+                    "You've entered an incorrect passcode, try again with correct one",
+                    "Orange, juicy and sweet",
+                    "Ask your friends for access at http://wwww.letmeinthesecretdoor.com",
+                    "Reach out to http://wwww.letmeinthesecretdoor.com/support for more help");
+        }
         userService.addUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).body("Added successfully");
     }
